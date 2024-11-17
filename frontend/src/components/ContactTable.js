@@ -51,6 +51,7 @@ const ContactTable = () => {
     return (
         <div style={{ padding: '20px' }}>
             <ToastContainer />
+            {updateContact ? <UpdatePage id={rowId}/> : <></>}
             <h1>Contact List</h1>
             <table border="1" cellPadding="10" style={{ width: '100%', textAlign: 'left' }}>
                 <thead>
@@ -89,7 +90,6 @@ const ContactTable = () => {
                     ))}
                 </tbody>
             </table>
-            {updateContact ? <UpdatePage id={rowId}/> : <></>}
         </div>
     );
 };

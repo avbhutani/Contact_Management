@@ -1,6 +1,13 @@
 .update-form {
     display: relative;
-    align-items: center;
+    align-items: baseline;
     width: 100%,
+
 }
 
+
+.exit-update-button {
+    text-align: right;
+    padding: 10px;
+    font-size: medium;
+}

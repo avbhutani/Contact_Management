@@ -26,6 +26,9 @@ const UpdatePage = (props)=> {
 
   const navigate = useNavigate()
 
+  async function exitUpdate() {
+    setUpdateContact(false)
+  }
   
     async function updateContactFunction(event) 
     {
@@ -45,7 +48,7 @@ const UpdatePage = (props)=> {
         setUpdateContact(false)
     }
         catch(error) {
-            toast('Error Updating Contact')
+            toast('Error Updating Contact.')
             console.log(error)
         }
     }
@@ -53,13 +56,14 @@ const UpdatePage = (props)=> {
         <>
         <ToastContainer />
         <form className='update-form'>
+        {setUpdateContact ? <button className='create-contact-button' onClick={exitUpdate}>Exit</button>:<></>}
             <TextField onChange={(e)=> setFirstName(e.target.value)} id="outlined-basic" label="First Name" variant="outlined" />
             <TextField onChange={(e)=> setLastName(e.target.value)} id="outlined-basic" label="Last Name" variant="outlined" />
             <TextField onChange={(e)=> setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" />
             <TextField onChange={(e)=> setPhoneNumber(e.target.value)} id="outlined-basic" label="Phone Number" variant="outlined" />
             <TextField onChange={(e)=> setCompany(e.target.value)} id="outlined-basic" label="Company" variant="outlined" />
             <TextField onChange={(e)=> setJobTitle(e.target.value)} id="outlined-basic" label="Job Title" variant="outlined" />
-            <Button type='submit' variant="contained" onClick={updateContactFunction}>Update Contact</Button>
+            <button type='submit' variant="create-contact-button" onClick={updateContactFunction}>Update Contact</button>
         </form>
         </>
     )

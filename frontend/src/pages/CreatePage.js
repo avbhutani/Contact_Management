@@ -5,8 +5,9 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import axios from 'axios'
 import {Route, Routes, useNavigate, useParams} from 'react-router-dom'
 import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CreateContactContext from '../contexts/createContact.context';
-
+import './CreatePage.css'
 const CreatePage = ()=> {
     const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
@@ -38,13 +39,15 @@ const CreatePage = ()=> {
       // window.location.href = '/'
     } catch (error) {
       console.log(`Error creating Contact!`,error)
-      setMessage(`One or more fields are empty!`)
+      toast('First Name and Email must not be Empty! ')
+      // setMessage(`One or more fields are empty!`)
     }
   }
     return(
       <>
         <ToastContainer />
-        <form>
+        <form className='create-form'>
+          
           <TextField onChange={(e)=> setFirstName(e.target.value)} id="outlined-basic" label="First Name" variant="outlined" />
           <TextField onChange={(e)=> setLastName(e.target.value)} id="outlined-basic" label="Last Name" variant="outlined" />
           <TextField onChange={(e)=> setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" />
