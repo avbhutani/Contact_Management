@@ -51,7 +51,7 @@ const CreatePage = ()=> {
       <>
         <ToastContainer />
         <form className='create-form'>
-          <button onClick={exitCreate}>Exit</button>
+          <button className='create-contact-button' onClick={exitCreate}>Exit</button>
           <TextField onChange={(e)=> setFirstName(e.target.value)} id="outlined-basic" label="First Name" variant="outlined" />
           <TextField onChange={(e)=> setLastName(e.target.value)} id="outlined-basic" label="Last Name" variant="outlined" />
           <TextField onChange={(e)=> setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" />

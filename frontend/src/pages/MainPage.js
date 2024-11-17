@@ -29,12 +29,11 @@ const MainPage = ()=> {
     return (
         <>
         <ToastContainer />
-        <div>
         {!createContact ? <button onClick={createNewContact} className='create-contact-button'>Create New Contact</button>:
             <></>
         }
-        
         {createContact ? <CreatePage /> : <></>}
+        <div>
         <ContactTable />
         </div>
     </>

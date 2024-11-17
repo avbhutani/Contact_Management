@@ -55,7 +55,7 @@ const UpdatePage = (props)=> {
     return(
         <>
         <ToastContainer />
-        <form className='update-form'>
+        <form className='create-form'>
         {setUpdateContact ? <button className='create-contact-button' onClick={exitUpdate}>Exit</button>:<></>}
             <TextField onChange={(e)=> setFirstName(e.target.value)} id="outlined-basic" label="First Name" variant="outlined" />
             <TextField onChange={(e)=> setLastName(e.target.value)} id="outlined-basic" label="Last Name" variant="outlined" />
