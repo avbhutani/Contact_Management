@@ -48,7 +48,7 @@ const UpdatePage = (props)=> {
         setUpdateContact(false)
     }
         catch(error) {
-            toast('Error Updating Contact.')
+            toast('Error Updating Contact')
             console.log(error)
         }
     }

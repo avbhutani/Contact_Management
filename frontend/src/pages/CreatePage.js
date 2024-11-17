@@ -18,6 +18,10 @@ const CreatePage = ()=> {
   const [message,setMessage] = useState('')
   const navigate = useNavigate()
   const {createContact,setCreateContact} = useContext(CreateContactContext)
+  async function exitCreate() 
+  {
+    setCreateContact(false)
+  }
   async function createContactFunction(event) {
     event.preventDefault()
     try {
@@ -39,7 +43,7 @@ const CreatePage = ()=> {
       // window.location.href = '/'
     } catch (error) {
       console.log(`Error creating Contact!`,error)
-      toast('First Name and Email must not be Empty! ')
+      toast('Error Creating Contact!')
       // setMessage(`One or more fields are empty!`)
     }
   }
@@ -47,14 +51,14 @@ const CreatePage = ()=> {
       <>
         <ToastContainer />
         <form className='create-form'>
-          
+          <button onClick={exitCreate}>Exit</button>
           <TextField onChange={(e)=> setFirstName(e.target.value)} id="outlined-basic" label="First Name" variant="outlined" />
           <TextField onChange={(e)=> setLastName(e.target.value)} id="outlined-basic" label="Last Name" variant="outlined" />
           <TextField onChange={(e)=> setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" />
           <TextField onChange={(e)=> setPhoneNumber(e.target.value)} id="outlined-basic" label="Phone Number" variant="outlined" />
           <TextField onChange={(e)=> setCompany(e.target.value)} id="outlined-basic" label="Company" variant="outlined" />
           <TextField onChange={(e)=> setJobTitle(e.target.value)} id="outlined-basic" label="Job Title" variant="outlined" />
-          <Button type='submit' variant="contained" onClick={createContactFunction}>Create Contact</Button>
+          <button type='submit' variant="create-contact-button" onClick={createContactFunction}>Create Contact</button>
         </form>
         </>
     )
